@@ -28,6 +28,12 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
+CSRF_COOKIE_SECURE = False
+CSRF_COOKIE_HTTPONLY = False
+CSRF_USE_SESSIONS = False
+CSRF_TRUSTED_ORIGINS = []
+CSRF_HEADER_NAME = None
+CSRF_COOKIE_NAME = None
 # Application definition
 
 INSTALLED_APPS = [
@@ -45,12 +51,11 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-
+ 
 ROOT_URLCONF = 'monitoring.urls'
 
 TEMPLATES = [
@@ -78,11 +83,11 @@ WSGI_APPLICATION = 'monitoring.wsgi.application'
 DATABASES = {
      "default": {
         "ENGINE": "django.db.backends.postgresql_psycopg2",
-        "NAME": "<nombrebd>",
-        "USER": "<usuario>",
-        "PASSWORD": "<clave>",
+        "NAME": "pruebadb2",
+        "USER": "david",
+        "PASSWORD": "12345678",
         "HOST": "localhost",
-        "PORT": "",
+        "PORT": "5432",
     }
 }
 

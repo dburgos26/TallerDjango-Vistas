@@ -33,3 +33,11 @@ def variable_view(request, pk):
         variable_dto = vl.update_variable(pk, json.loads(request.body))
         variable = serializers.serialize('json', [variable_dto,])
         return HttpResponse(variable, 'application/json')
+    
+
+def variables_view(request):
+    if request.method == 'GET':
+        variables = vl.get_variables()
+        variables_dto = serializers.serialize('json', variables)
+        return HttpResponse(variables_dto, 'application/json')
+        
